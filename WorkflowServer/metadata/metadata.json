@@ -1,0 +1,142 @@
+{
+  "Plugin": {
+    "BasicPlugin": {
+      "Name": "BasicPlugin",
+      "Enabled": true,
+      "Parameters": {
+        "mailServerPort": "25",
+        "mailServerSsl": "true",
+        "dontCompileExpressions": "false"
+      },
+      "RequestHeaders": {}
+    },
+    "FilePlugin": {
+      "Name": "FilePlugin",
+      "Enabled": true,
+      "Parameters": {},
+      "RequestHeaders": {}
+    },
+    "LoopPlugin": {
+      "Name": "LoopPlugin",
+      "Enabled": true,
+      "Parameters": {},
+      "RequestHeaders": {}
+    }
+  },
+  "CorsSettings": {
+    "AllowedOrigins": [
+      "*"
+    ]
+  },
+  "LoggerSettings": {
+    "GlobalParameterName": "LoggerSettings",
+    "ConsoleTarget": {
+      "IsEnabled": true,
+      "Events": {
+        "Debug": false,
+        "Information": true,
+        "Error": true
+      }
+    },
+    "DebugTarget": {
+      "IsEnabled": false,
+      "Events": {
+        "Debug": false,
+        "Information": false,
+        "Error": false
+      }
+    },
+    "EventLogTarget": {
+      "IsEnabled": false,
+      "Events": {
+        "Debug": false,
+        "Information": false,
+        "Error": false
+      }
+    },
+    "FileTarget": {
+      "Properties": {
+        "FileName": "/app/wfs/logs/log.txt",
+        "RollingInterval": 3,
+        "RetainedFileCountLimit": 30
+      },
+      "IsEnabled": true,
+      "Events": {
+        "Debug": false,
+        "Information": true,
+        "Error": true
+      }
+    },
+    "DatabaseTarget": {
+      "Properties": {
+        "BatchSizeLimit": 100,
+        "Period": 2000
+      },
+      "IsEnabled": false,
+      "Events": {
+        "Debug": false,
+        "Information": false,
+        "Error": false
+      }
+    }
+  },
+  "Security": {
+    "AccessToken": null,
+    "OidcToken": false
+  },
+  "LDAPConf": {
+    "Enabled": false,
+    "Host": null,
+    "Port": null,
+    "Dn": null,
+    "Pwd": "",
+    "PwdEncrypted": null,
+    "DistinguishedName": null,
+    "Ssl": false,
+    "Filter": "(objectClass=inetOrgPerson)",
+    "Anonymous": false,
+    "AttributeMapping": {
+      "CommonName": "cn",
+      "Mail": "mail",
+      "Uid": "uid",
+      "MemberOf": "memberof",
+      "DomainComponent": "dc",
+      "DomainLogin": "uid",
+      "UseDomainPrefixInLogin": true
+    }
+  },
+  "IdentityServerSettings": {
+    "CertificateFile": "IdentityServer4Auth.pfx",
+    "CertificatePassword": "password",
+    "RedirectHosts": [
+      "http://localhost:8077",
+      "http://localhost:8078"
+    ],
+    "RedirectUrls": null,
+    "RedirectUrlsMobile": null,
+    "FacebookSettings": null,
+    "GoogleSettings": null,
+    "OktaSettings": null,
+    "UseHostRedirectValidator": false
+  },
+  "BusinessFlow": {
+    "104a5c00-df7f-e51c-0365-12f650421405": {
+      "Id": "104a5c00-df7f-e51c-0365-12f650421405",
+      "Name": "Alex",
+      "Scheme": "Schema",
+      "DefaultForm": "master",
+      "Map": [
+        {
+          "States": [
+            "InitialActivity"
+          ],
+          "Roles": [
+            "*"
+          ],
+          "Form": "embeddedmaster"
+        }
+      ],
+      "FlowNameParameter": "flowName"
+    }
+  }
+}

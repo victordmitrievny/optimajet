@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Process Name="diddownlaodoccur" CanBeInlined="false" Tags="" LogEnabled="false">
+  <Designer />
+  <Activities>
+    <Activity Name="Activity" State="Activity" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="499" Y="191" Hidden="false" />
+    </Activity>
+    <Activity Name="InitialActivity" State="InitialActivity" IsInitial="true" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="412" Y="238" Hidden="false" />
+    </Activity>
+  </Activities>
+</Process>

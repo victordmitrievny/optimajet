@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Process Name="schemaaa" CanBeInlined="false" Tags="" LogEnabled="false">
+  <Designer />
+  <Parameters>
+    <Parameter Name="amount" Type="Int32" Purpose="Persistence" InitialValue="200" />
+    <Parameter Name="calculate" Type="System.Collections.Generic.List&lt;Int32&gt;" Purpose="Persistence" InitialValue="null" />
+    <Parameter Name="increment" Type="Int32" Purpose="Persistence" InitialValue="99" />
+  </Parameters>
+  <Commands>
+    <Command Name="Calculate">
+      <InputParameters>
+        <ParameterRef Name="calculate" IsRequired="false" DefaultValue="" NameRef="calculate" />
+      </InputParameters>
+    </Command>
+    <Command Name="Increase">
+      <InputParameters>
+        <ParameterRef Name="increment" IsRequired="false" DefaultValue="" NameRef="increment" />
+      </InputParameters>
+    </Command>
+  </Commands>
+  <Activities>
+    <Activity Name="Activity1" State="State1" IsInitial="true" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="30" Y="120" Hidden="false" />
+    </Activity>
+    <Activity Name="Activity2" State="State2" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="350" Y="420" Hidden="false" />
+    </Activity>
+    <Activity Name="Activity4" State="State4" IsInitial="false" IsFinal="true" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1050" Y="160" Hidden="false" />
+    </Activity>
+    <Activity Name="Error" State="Error" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="30" Y="390" Hidden="false" />
+    </Activity>
+    <Activity Name="Activity5" State="Activity5" IsInitial="false" IsFinal="true" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="450" Y="120" Hidden="false" />
+    </Activity>
+    <Activity Name="Activity3" State="State3" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="680" Y="230" Hidden="false" />
+    </Activity>
+    <Activity Name="Increase" IsInitial="false" IsFinal="false" IsForSetState="false" IsAutoSchemeUpdate="false">
+      <Implementation>
+        <ActionRef Order="1" NameRef="Increase" />
+      </Implementation>
+      <Designer X="700" Y="400" Hidden="false" />
+    </Activity>
+  </Activities>
+  <Transitions>
+    <Transition Name="Activity1_Activity2_1" To="Activity2" From="Activity1" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="IsAmountGreateOrEqual100" ConditionInversion="false" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Activity1_Activity3_1" To="Error" From="Activity1" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Otherwise" />
+      </Conditions>
+      <Designer X="47" Y="294" Hidden="false" />
+    </Transition>
+    <Transition Name="Activity1_Activity_1_1" To="Activity5" From="Activity1" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="IsAmountGreater10Less100" ConditionInversion="false" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Activity2_Activity_1_1" To="Activity3" From="Activity2" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="Calculate" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="IsCalculateGreater10" ConditionInversion="true" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Activity_1_Error_1" To="Error" From="Activity2" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="Calculate" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Otherwise" />
+      </Conditions>
+      <Designer X="37" Y="542" Hidden="false" />
+    </Transition>
+    <Transition Name="Activity3_Activity4_1" To="Increase" From="Activity3" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="Increase" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Increase_Activity4_1" To="Activity4" From="Increase" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="IsAmountGreateOrEqual200" ConditionInversion="false" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Increase_Error_1" To="Error" From="Increase" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Otherwise" />
+      </Conditions>
+      <Designer X="400" Y="586" Hidden="false" />
+    </Transition>
+  </Transitions>
+  <CodeActions>
+    <CodeAction Name="IsAmountGreater10Less100" Type="Condition" IsGlobal="False" IsAsync="False">
+      <ActionCode><![CDATA[var amount = processInstance.GetParameter<int>("amount");
+return amount > 10 && amount < 100;]]></ActionCode>
+      <Usings><![CDATA[OptimaJet.WorkflowServer.Model.MSSQL;System;OptimaJet.WorkflowServer;System.Collections;System.Threading;System.Threading.Tasks;OptimaJet.Workflow.Core.Model;System.Collections.Generic;OptimaJet.WorkflowServer.Model;OptimaJet.WorkflowServer.License;OptimaJet.Workflow;OptimaJet.WorkflowServer.Model.PostgreSQL;System.Linq;]]></Usings>
+    </CodeAction>
+    <CodeAction Name="IsAmountGreateOrEqual100" Type="Condition" IsGlobal="False" IsAsync="False">
+      <ActionCode><![CDATA[var amount = processInstance.GetParameter<int>("amount");
+return amount >= 100;]]></ActionCode>
+      <Usings><![CDATA[System.Threading;OptimaJet.WorkflowServer.Model.MSSQL;OptimaJet.WorkflowServer.Model;System.Threading.Tasks;System;System.Collections.Generic;OptimaJet.Workflow;System.Linq;OptimaJet.WorkflowServer;OptimaJet.Workflow.Core.Model;System.Collections;OptimaJet.WorkflowServer.License;OptimaJet.WorkflowServer.Model.PostgreSQL;]]></Usings>
+    </CodeAction>
+    <CodeAction Name="IsCalculateGreater10" Type="Condition" IsGlobal="False" IsAsync="False">
+      <ActionCode><![CDATA[var calculate = processInstance.GetParameter<List<int>>("calculate");
+if (calculate == null) return false;
+var res = 0;
+foreach (var v in calculate)
+{
+    res += v;
+}
+
+return res > 10;]]></ActionCode>
+      <Usings><![CDATA[System.Threading;OptimaJet.WorkflowServer.Model.MSSQL;OptimaJet.WorkflowServer.Model;System.Threading.Tasks;System;System.Collections.Generic;OptimaJet.Workflow;System.Linq;OptimaJet.WorkflowServer;OptimaJet.Workflow.Core.Model;System.Collections;OptimaJet.WorkflowServer.License;OptimaJet.WorkflowServer.Model.PostgreSQL;]]></Usings>
+    </CodeAction>
+    <CodeAction Name="IsAmountGreateOrEqual200" Type="Condition" IsGlobal="False" IsAsync="False">
+      <ActionCode><![CDATA[var amount = processInstance.GetParameter<int>("amount");
+return amount >= 200;]]></ActionCode>
+      <Usings><![CDATA[System.Threading;OptimaJet.WorkflowServer.Model.MSSQL;OptimaJet.WorkflowServer.Model;System.Threading.Tasks;System;System.Collections.Generic;OptimaJet.Workflow;System.Linq;OptimaJet.WorkflowServer;OptimaJet.Workflow.Core.Model;System.Collections;OptimaJet.WorkflowServer.License;OptimaJet.WorkflowServer.Model.PostgreSQL;]]></Usings>
+    </CodeAction>
+    <CodeAction Name="Increase" Type="Action" IsGlobal="False" IsAsync="False">
+      <ActionCode><![CDATA[var amount = 10000
+var increment = processInstance.GetParameter<int>("increment");
+processInstance.SetParameter("amount",amount + increment);
+]]></ActionCode>
+    </CodeAction>
+  </CodeActions>
+  <CodeActionsCommonUsings><![CDATA[OptimaJet.WorkflowServer.Model.SchemeModel;OptimaJet.WorkflowServer.Plugins;OptimaJet.WorkflowServer.Data.Repositories;OptimaJet.WorkflowServer.Model.MongoDB;System.Linq;OptimaJet.WorkflowServer.Faults;OptimaJet.WorkflowServer.Integration.Base.Classes;OptimaJet.WorkflowServer.BackgoundTasks;OptimaJet.WorkflowServer.Forms;OptimaJet.WorkflowServer.Hubs;OptimaJet.WorkflowServer.Logging;OptimaJet.Logging.Database;System.Net.Http.QPack;OptimaJet.Logging;System.Threading.Tasks;OptimaJet.WorkflowServer.Integration.Base.Interfaces;OptimaJet.Workflow;OptimaJet.WorkflowServer.Identity.Native;OptimaJet.Workflow.Core.Runtime;OptimaJet.WorkflowServer.Identity;OptimaJet.WorkflowServer.Services.PostgreSql;OptimaJet.WorkflowServer.Services.MsSql;OptimaJet.WorkflowServer.Services.Oracle;System;Microsoft.CodeAnalysis;System.IO;System.Net.Http.Headers;OptimaJet.WorkflowServer.Services;System.Text;OptimaJet.WorkflowServer.RuleProviders;OptimaJet.WorkflowServer.License;OptimaJet.WorkflowServer.Callback;System.Dynamic;OptimaJet.WorkflowServer.Data;OptimaJet.WorkflowServer;System.Net.Security;OptimaJet.WorkflowServer.Data.Repositories.SchemesRepository;OptimaJet.WorkflowServer.Model.PostgreSQL;System.Runtime.CompilerServices;OptimaJet.WorkflowServer.Model.Entity;System.Threading;OptimaJet.WorkflowServer.Forms.Model;OptimaJet.WorkflowServer.Data.Repositories.SchemesRepository.SqlProviders;System.Net.Http;FxResources.System.Net.Http;OptimaJet.WorkflowServer.Identity.Sync;System.Net;OptimaJet.WorkflowServer.Model.MSSQL;Microsoft.CSharp.RuntimeBinder;OptimaJet.WorkflowServer.Persistence;System.Net.Http.HPack;OptimaJet.WorkflowServer.Model;OptimaJet.WorkflowServer.Api;OptimaJet.WorkflowServer.Api.Config;OptimaJet.WorkflowServer.Identity.IdentityDataProvider;Microsoft.Extensions.Internal;OptimaJet.WorkflowServer.Services.Cors;System.Collections;OptimaJet.Workflow.Core.Model;System.Collections.Generic;OptimaJet.WorkflowServer.Data.QueryBuilder.Glossaries;OptimaJet.WorkflowServer.Services.MongoDB;Microsoft.Win32.SafeHandles;OptimaJet.WorkflowServer.Model.MySQL;OptimaJet.WorkflowServer.Model.Oracle;OptimaJet.WorkflowServer.Initializing;OptimaJet.WorkflowServer.Model.Users;Microsoft.CSharp;OptimaJet.WorkflowServer.Services.MySql;OptimaJet.WorkflowServer.Utils;OptimaJet.WorkflowServer.Data.QueryBuilder;]]></CodeActionsCommonUsings>
+</Process>

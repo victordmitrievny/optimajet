@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Process Name="Approval_test" CanBeInlined="false" Tags="" LogEnabled="false">
+  <Designer />
+  <Actors>
+    <Actor Name="Alex" Rule="CheckRole" Value="admin" />
+    <Actor Name="Mary" Rule="CheckRole" Value="admin" />
+  </Actors>
+  <Commands>
+    <Command Name="ToAlex" />
+    <Command Name="ToMary" />
+    <Command Name="Approve" />
+    <Command Name="Rollback" />
+  </Commands>
+  <Timers>
+    <Timer Name="5 days timer" Type="Interval" Value="5d" NotOverrideIfExists="false" />
+  </Timers>
+  <Activities>
+    <Activity Name="VacationRequest" State="VacationRequest" IsInitial="true" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="420" Y="260" Hidden="false" />
+    </Activity>
+    <Activity Name="ToAlex" State="ToAlex" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="680" Y="90" Hidden="false" />
+    </Activity>
+    <Activity Name="ToMary" State="ToMary" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="680" Y="410" Hidden="false" />
+    </Activity>
+    <Activity Name="FinalActivity" State="FinalActivity" IsInitial="false" IsFinal="true" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1010" Y="260" Hidden="false" />
+    </Activity>
+  </Activities>
+  <Transitions>
+    <Transition Name="InitialActivity_Activity_1" To="ToAlex" From="VacationRequest" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="ToAlex" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="InitialActivity_Activity_1_1" To="ToMary" From="VacationRequest" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="ToMary" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Activity_1_FinalActivity_1" To="FinalActivity" From="ToMary" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="Approve" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Activity_FinalActivity_1" To="FinalActivity" From="ToAlex" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="Approve" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="910" Y="205" Hidden="false" />
+    </Transition>
+  </Transitions>
+  <CodeActions>
+    <CodeAction Name="IsAmountMoreThan10days" Type="Action" IsGlobal="False" IsAsync="False">
+      <ActionCode><![CDATA[%2F%2F%20TODO%20Insert%20your%20code%20here%0A]]></ActionCode>
+    </CodeAction>
+  </CodeActions>
+  <CodeActionsCommonUsings><![CDATA[OptimaJet.WorkflowServer.Data;OptimaJet.WorkflowServer.Utils;OptimaJet.WorkflowServer.Plugins;Microsoft.CSharp.RuntimeBinder;FxResources.System.Net.Http;OptimaJet.WorkflowServer.Logging;OptimaJet.WorkflowServer.Services.MySql;System.Collections.Generic;OptimaJet.WorkflowServer.Model.PostgreSQL;OptimaJet.WorkflowServer.Identity.Native;System.Net.Http;System.Runtime.CompilerServices;OptimaJet.WorkflowServer.Model.Users;Microsoft.Extensions.Internal;OptimaJet.WorkflowServer.Services;OptimaJet.Workflow.Core.Runtime;OptimaJet.WorkflowServer.Model.MongoDB;System.Threading;OptimaJet.Logging;Microsoft.CSharp;OptimaJet.WorkflowServer.Integration.Base.Classes;OptimaJet.WorkflowServer.Data.QueryBuilder.Glossaries;OptimaJet.WorkflowServer.Data.Repositories.SchemesRepository;OptimaJet.WorkflowServer.Persistence;OptimaJet.WorkflowServer.Callback;Microsoft.Win32.SafeHandles;OptimaJet.WorkflowServer.Identity.IdentityDataProvider;OptimaJet.WorkflowServer.Identity;OptimaJet.WorkflowServer.Api.Config;OptimaJet.WorkflowServer.Forms;OptimaJet.WorkflowServer.RuleProviders;System.IO;OptimaJet.WorkflowServer.Model.MSSQL;OptimaJet.WorkflowServer.Model.MySQL;OptimaJet.WorkflowServer.Hubs;OptimaJet.WorkflowServer.Model;OptimaJet.Workflow;System.Collections;OptimaJet.WorkflowServer.Model.Entity;OptimaJet.WorkflowServer.Data.Repositories;System.Net.Http.QPack;OptimaJet.WorkflowServer.Identity.Sync;System.Net.Http.HPack;OptimaJet.WorkflowServer.Services.Cors;OptimaJet.WorkflowServer.Api;OptimaJet.WorkflowServer.Faults;OptimaJet.WorkflowServer.Forms.Model;Microsoft.CodeAnalysis;System.Threading.Tasks;OptimaJet.WorkflowServer.License;OptimaJet.WorkflowServer.Initializing;System.Net;OptimaJet.Logging.Database;OptimaJet.WorkflowServer.Services.Oracle;System.Net.Http.Headers;OptimaJet.WorkflowServer;System;System.Dynamic;OptimaJet.Workflow.Core.Model;OptimaJet.WorkflowServer.Integration.Base.Interfaces;System.Net.Security;OptimaJet.WorkflowServer.Services.MongoDB;OptimaJet.WorkflowServer.Services.PostgreSql;System.Linq;System.Text;OptimaJet.WorkflowServer.Data.Repositories.SchemesRepository.SqlProviders;OptimaJet.WorkflowServer.BackgoundTasks;OptimaJet.WorkflowServer.Services.MsSql;OptimaJet.WorkflowServer.Data.QueryBuilder;OptimaJet.WorkflowServer.Model.SchemeModel;OptimaJet.WorkflowServer.Model.Oracle;]]></CodeActionsCommonUsings>
+</Process>

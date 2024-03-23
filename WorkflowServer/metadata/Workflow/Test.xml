@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Process Name="Test" CanBeInlined="false" Tags="" LogEnabled="false">
+  <Designer />
+  <Actors>
+    <Actor Name="Alex" Rule="CheckRole" Value="" />
+  </Actors>
+  <Commands>
+    <Command Name="ToDiscover" />
+    <Command Name="ToCITI" />
+    <Command Name="Approved" />
+    <Command Name="Rollback" />
+  </Commands>
+  <Activities>
+    <Activity Name="LoanApplication" State="LoanApplication" IsInitial="true" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="260" Y="220" Hidden="false" />
+    </Activity>
+    <Activity Name="DiscoveryBank" State="DiscoveryBank" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="540" Y="70" Hidden="false" />
+    </Activity>
+    <Activity Name="Approved" State="Approved" IsInitial="false" IsFinal="true" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="860" Y="220" Hidden="false" />
+    </Activity>
+    <Activity Name="CITIBank" State="CITIBank" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="540" Y="380" Hidden="false" />
+    </Activity>
+  </Activities>
+  <Transitions>
+    <Transition Name="InitialActivity_Activity_1" To="DiscoveryBank" From="LoanApplication" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="ToDiscover" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Activity_FinalActivity_1" To="Approved" From="DiscoveryBank" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="Approved" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="InitialActivity_Activity_1_1" To="CITIBank" From="LoanApplication" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Alex" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="ToCITI" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Activity_1_FinalActivity_1" To="Approved" From="CITIBank" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="Approved" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+  </Transitions>
+  <CodeActions>
+    <CodeAction Name="IsLoanGreaterThan1000" Type="Action" IsGlobal="False" IsAsync="False">
+      <ActionCode><![CDATA[// TODO Insert your code here]]></ActionCode>
+    </CodeAction>
+  </CodeActions>
+  <CodeActionsCommonUsings><![CDATA[OptimaJet.WorkflowServer.Model.SchemeModel;OptimaJet.WorkflowServer.Plugins;OptimaJet.WorkflowServer.Data.Repositories;OptimaJet.WorkflowServer.Model.MongoDB;System.Linq;OptimaJet.WorkflowServer.Faults;OptimaJet.WorkflowServer.Integration.Base.Classes;OptimaJet.WorkflowServer.BackgoundTasks;OptimaJet.WorkflowServer.Forms;OptimaJet.WorkflowServer.Hubs;OptimaJet.WorkflowServer.Logging;OptimaJet.Logging.Database;System.Net.Http.QPack;OptimaJet.Logging;System.Threading.Tasks;OptimaJet.WorkflowServer.Integration.Base.Interfaces;OptimaJet.Workflow;OptimaJet.WorkflowServer.Identity.Native;OptimaJet.Workflow.Core.Runtime;OptimaJet.WorkflowServer.Identity;OptimaJet.WorkflowServer.Services.PostgreSql;OptimaJet.WorkflowServer.Services.MsSql;OptimaJet.WorkflowServer.Services.Oracle;System;Microsoft.CodeAnalysis;System.IO;System.Net.Http.Headers;OptimaJet.WorkflowServer.Services;System.Text;OptimaJet.WorkflowServer.RuleProviders;OptimaJet.WorkflowServer.License;OptimaJet.WorkflowServer.Callback;System.Dynamic;OptimaJet.WorkflowServer.Data;OptimaJet.WorkflowServer;System.Net.Security;OptimaJet.WorkflowServer.Data.Repositories.SchemesRepository;OptimaJet.WorkflowServer.Model.PostgreSQL;System.Runtime.CompilerServices;OptimaJet.WorkflowServer.Model.Entity;System.Threading;OptimaJet.WorkflowServer.Forms.Model;OptimaJet.WorkflowServer.Data.Repositories.SchemesRepository.SqlProviders;System.Net.Http;FxResources.System.Net.Http;OptimaJet.WorkflowServer.Identity.Sync;System.Net;OptimaJet.WorkflowServer.Model.MSSQL;Microsoft.CSharp.RuntimeBinder;OptimaJet.WorkflowServer.Persistence;System.Net.Http.HPack;OptimaJet.WorkflowServer.Model;OptimaJet.WorkflowServer.Api;OptimaJet.WorkflowServer.Api.Config;OptimaJet.WorkflowServer.Identity.IdentityDataProvider;Microsoft.Extensions.Internal;OptimaJet.WorkflowServer.Services.Cors;System.Collections;OptimaJet.Workflow.Core.Model;System.Collections.Generic;OptimaJet.WorkflowServer.Data.QueryBuilder.Glossaries;OptimaJet.WorkflowServer.Services.MongoDB;Microsoft.Win32.SafeHandles;OptimaJet.WorkflowServer.Model.MySQL;OptimaJet.WorkflowServer.Model.Oracle;OptimaJet.WorkflowServer.Initializing;OptimaJet.WorkflowServer.Model.Users;Microsoft.CSharp;OptimaJet.WorkflowServer.Services.MySql;OptimaJet.WorkflowServer.Utils;OptimaJet.WorkflowServer.Data.QueryBuilder;]]></CodeActionsCommonUsings>
+</Process>

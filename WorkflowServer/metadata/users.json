@@ -1,0 +1,77 @@
+[
+  {
+    "Credentials": [],
+    "Id": "bea9a356-f8f8-44b6-99b7-b239b79379a4",
+    "Name": "Oleg",
+    "Email": null,
+    "Phone": null,
+    "ExternalId": null,
+    "TenantId": null,
+    "Lock": "ce54411d-765e-4da7-a37a-35909a483758",
+    "IsLocked": false,
+    "Extensions": null,
+    "Roles": [
+      "ChiefRevenueOfficer"
+    ]
+  },
+  {
+    "Credentials": [],
+    "Id": "324f01c6-6a48-4b7a-8e83-29a9ee0b7dcc",
+    "Name": "Elena",
+    "Email": null,
+    "Phone": null,
+    "ExternalId": null,
+    "TenantId": null,
+    "Lock": "d226c2cb-293e-4bb7-9bc7-e48c3f5a2639",
+    "IsLocked": false,
+    "Extensions": null,
+    "Roles": [
+      "SalesManager"
+    ]
+  },
+  {
+    "Credentials": [],
+    "Id": "4cb85fab-d482-4d76-95e9-aa737874dbf1",
+    "Name": "Andrew",
+    "Email": null,
+    "Phone": null,
+    "ExternalId": null,
+    "TenantId": null,
+    "Lock": "67127c98-cc36-44a1-ab9c-048f56bb8d4f",
+    "IsLocked": false,
+    "Extensions": null,
+    "Roles": [
+      "SupportEngineer"
+    ]
+  },
+  {
+    "Credentials": [],
+    "Id": "dee5e505-1314-42a3-a012-acb833336881",
+    "Name": "Alex",
+    "Email": null,
+    "Phone": null,
+    "ExternalId": null,
+    "TenantId": null,
+    "Lock": "d7d157fb-823c-456b-a6ef-7e9b808fda04",
+    "IsLocked": false,
+    "Extensions": null,
+    "Roles": [
+      "admin"
+    ]
+  },
+  {
+    "Credentials": [],
+    "Id": "c89d21d5-5636-4951-b1c9-a9dd94c767ab",
+    "Name": "Mary",
+    "Email": null,
+    "Phone": null,
+    "ExternalId": null,
+    "TenantId": null,
+    "Lock": "7734b417-4817-453f-90ff-9093e08d86be",
+    "IsLocked": false,
+    "Extensions": null,
+    "Roles": [
+      "admin"
+    ]
+  }
+]

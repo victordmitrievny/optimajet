@@ -1,0 +1,45 @@
+[
+    { "Name": "master", "Source": "master.html" },
+    { "Name": "embeddedmaster", "Source": "embeddedmaster.html" },
+    { "Name": "index", "CustomUrl": "/", "MasterPage": "master", "EmbeddedMasterPage": "embeddedmaster", "Source": "index.html" },
+    { "Name": "all", "CustomUrl": "/all", "MasterPage": "processes", "Source": "all.html", "Type": "all", 
+        "Fields": [
+            {"Name": "title", "Title":"Title", "Control" :"",	"Options": "" },
+            {"Name": "SchemeCode", "Title":"Scheme", "Control" :"",	"Options": "" },
+            {"Name": "localizedstate", "Title":"State", "Control" :"",	"Options": "" },
+            {"Name": "commands", "Title":"Commands", "Control" :"",	"Options": "" },
+            {"Name": "actions", "Title":"Actions", "Control" :"",	"Options": "" }
+        ] },
+    { "Name": "my", "CustomUrl": "/my", "MasterPage": "processes", "Source": "my.html", "Type": "my" , 
+        "Fields": [
+            {"Name": "title", "Title":"Title", "Control" :"",	"Options": "" },
+            {"Name": "SchemeCode", "Title":"Scheme", "Control" :"",	"Options": "" },
+            {"Name": "localizedstate", "Title":"State", "Control" :"",	"Options": "" },
+            {"Name": "commands", "Title":"Commands", "Control" :"",	"Options": "" },
+            {"Name": "actions", "Title":"Actions", "Control" :"",	"Options": "" }
+        ] },
+    { "Name": "inbox", "CustomUrl": "/inbox", "MasterPage": "processes", "Source": "inbox.html", "Type": "inbox", 
+        "Fields": [
+            {"Name": "title", "Title":"Title", "Control" :"",	"Options": "" },
+            {"Name": "SchemeCode", "Title":"Scheme", "Control" :"",	"Options": "" },
+            {"Name": "localizedstate", "Title":"State", "Control" :"",	"Options": "" },
+            {"Name": "commands", "Title":"Commands", "Control" :"",	"Options": "" },
+            {"Name": "actions", "Title":"Actions", "Control" :"",	"Options": "" }
+        ] },
+    { "Name": "outbox", "CustomUrl": "/outbox", "MasterPage": "processes", "Source": "outbox.html", "Type": "outbox", 
+        "Fields": [
+            {"Name": "title", "Title":"Title", "Control" :"",	"Options": "" },
+            {"Name": "SchemeCode", "Title":"Scheme", "Control" :"",	"Options": "" },
+            {"Name": "localizedstate", "Title":"State", "Control" :"",	"Options": "" },
+            {"Name": "commands", "Title":"Commands", "Control" :"",	"Options": "" },
+            {"Name": "actions", "Title":"Actions", "Control" :"",	"Options": "" }
+        ] },
+    { "Name": "processes", "MasterPage": "master", "EmbeddedMasterPage": "embeddedmaster", "Source": "processes.html" },
+    { "Name": "process", "MasterPage": "master", "EmbeddedMasterPage": "embeddedmaster", "Source": "process.html" },
+    { "Name": "header", "Source": "header.html" },
+    { "Name": "sidebar", "Source": "sidebar.html" },
+    { "Name": "processtimeline", "Source": "processtimeline.html" },
+    { "Name": "processform", "Source": "processform.html" },
+    { "Name": "profile", "CustomUrl": "/profile", "MasterPage": "master", "EmbeddedMasterPage": "embeddedmaster", "Source": "profile.html" },
+    { "Name": "designer", "CustomUrl": "/designer", "Source": "designer.html", "MasterPage": "", "EmbeddedMasterPage": "" }
+]

@@ -1,0 +1,17 @@
+<el-form
+    v-if="Array.isArray(fields) && fields.length > 0"
+    :model="FormData"
+    ref="form"
+    label-width="100px">
+
+  <div wfs-placeholder="fields"></div>
+
+  <el-form-item v-if="processInstance && !isreadonly()">
+    <el-button type="primary" :loading="extra.loading" @click="submit()">Save</el-button>
+  </el-form-item>
+</el-form>
+
+<div wfs-placeholder="formcustom">
+
+</div>
+

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Process Name="jjjj" CanBeInlined="false" Tags="" LogEnabled="false">
+  <Designer />
+  <Activities>
+    <Activity Name="HTTPRequest" State="HTTPRequest" IsInitial="true" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true" WasInlined="true" OriginalName="HTTPRequest" OriginalSchemeCode="HTTPRequest">
+      <Designer X="440" Y="200" Hidden="false" />
+    </Activity>
+    <Activity Name="AfterRequest" State="AfterRequest" IsInitial="false" IsFinal="true" IsForSetState="true" IsAutoSchemeUpdate="true" WasInlined="true" OriginalName="AfterRequest" OriginalSchemeCode="HTTPRequest">
+      <Designer X="850" Y="200" Hidden="false" />
+    </Activity>
+  </Activities>
+  <Transitions>
+    <Transition Name="Activity_Activity_1_1" To="AfterRequest" From="HTTPRequest" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="CheckHTTPRequest" ConditionInversion="false">
+          <ActionParameter><![CDATA[{"ParameterName":"HTTPRequest_Result","CompareType":"Equal","ResultFieldValue":"true","Separator":",","AddProcessInstanceParameters":false,"ContentType":"Json","Url":"http://httpbin.org/anything/{anything}","Post":true,"Parameters":"true","ResultFieldName":"data"}]]></ActionParameter>
+        </Condition>
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+  </Transitions>
+</Process>

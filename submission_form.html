@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <style>
+        body {
+            background-color: #69696d; /* Dark blue background color */
+            display: flex;
+            justify-content: center; /* Center align horizontally */
+            align-items: center; /* Center align vertically */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+        form {
+            background-color: #FFFFFF; /* White background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow effect */
+            text-align: center;
+        }
+        label {
+            margin-bottom: 10px; /* Add some spacing between labels */
+            color: #09090A; /* Dark blue text color */
+            font-weight: bold; /* Bold font weight */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="submit"] {
+            width: 100%; /* Make inputs full width */
+            padding: 8px;
+            margin-bottom: 10px; /* Add some spacing between inputs */
+            border: 1px solid #D6D6D6; /* Light gray border */
+            border-radius: 4px; /* Add border radius */
+            box-sizing: border-box; /* Include padding and border in the width */
+            background-color: #F5F5F5; /* Light gray background color */
+        }
+        input[type="submit"] {
+            background-color: #09090A; /* Dark blue submit button */
+            color: #FFFFFF; /* White text color */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        input[type="submit"]:hover {
+            background-color: #1FBAD6; /* Light blue on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <form action="http://127.0.0.1:8080/form" method="post">
+        <label for="username">Customer Name:</label>
+        <input type="text" id="username" name="username"><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <label for="amount">Number of people:</label>
+        <input type="number" id="amount" name="amount" min="0"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

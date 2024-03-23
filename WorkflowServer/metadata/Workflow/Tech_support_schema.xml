@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Process Name="Tech_support_schema" CanBeInlined="false" Tags="" LogEnabled="false">
+  <Designer />
+  <Actors>
+    <Actor Name="Elena" Rule="CheckRole" Value="SalesManager" />
+    <Actor Name="Andrew" Rule="CheckRole" Value="SupportEngineer" />
+    <Actor Name="Oleg" Rule="CheckRole" Value="ChiefRevenueOfficer" />
+  </Actors>
+  <Commands>
+    <Command Name="Validated" />
+    <Command Name="NotValidated" />
+    <Command Name="SimpleQuestions" />
+    <Command Name="DifficultQuestions" />
+    <Command Name="SendEmailResponse" />
+    <Command Name="AdditionalQuestions" />
+    <Command Name="ResponseIncomplete" />
+    <Command Name="UpdateDeal" />
+    <Command Name="ProvideClientID+Price" />
+    <Command Name="Questions" />
+    <Command Name="NoQuestions" />
+    <Command Name="Postponed" />
+    <Command Name="NextStage" />
+    <Command Name="PreviousStage" />
+    <Command Name="HighProbability" />
+    <Command Name="GiveTrial" />
+    <Command Name="UpdateProbability" />
+    <Command Name="NoPrice" />
+    <Command Name="StartTrial" />
+    <Command Name="SupportTimeDashboard" />
+  </Commands>
+  <Timers>
+    <Timer Name="2d" Type="Interval" Value="2d" NotOverrideIfExists="false" />
+    <Timer Name="DealTimeOut" Type="Interval" Value="60d" NotOverrideIfExists="false" />
+  </Timers>
+  <Activities>
+    <Activity Name="IncomingQuestion" State="IncomingQuestion" IsInitial="true" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="340" Y="380" Hidden="false" />
+    </Activity>
+    <Activity Name="ProspectValidation" State="ProspectValidation" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="620" Y="380" Hidden="false" />
+    </Activity>
+    <Activity Name="GitHubSupport" State="GitHubSupport" IsInitial="false" IsFinal="true" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="620.0000000000001" Y="190.00000000000006" Hidden="false" />
+    </Activity>
+    <Activity Name="ConvertToDeal" State="ConvertToDeal" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="910" Y="380" Hidden="false" />
+    </Activity>
+    <Activity Name="HandlingObjections" State="HandlingObjections" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1170" Y="730" Hidden="false" />
+    </Activity>
+    <Activity Name="SalesAndSupportAnswer" State="SalesAndSupportAnswer" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1410" Y="960" Hidden="false" />
+    </Activity>
+    <Activity Name="SalesOnlyAnswer" State="SalesOnlyAnswer" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1770" Y="490" Hidden="false" />
+    </Activity>
+    <Activity Name="WaitClientID+Price" State="WaitClientID+Price" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="2480" Y="370.00000000000006" Hidden="false" />
+    </Activity>
+    <Activity Name="SupportAnswer" State="SupportAnswer" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1770" Y="1079.9999999999998" Hidden="false" />
+    </Activity>
+    <Activity Name="SalesAnswer" State="SalesAnswer" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1770" Y="880" Hidden="false" />
+    </Activity>
+    <Activity Name="CheckForMoreQuestions" State="CheckForMoreQuestions" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="2240" Y="730" Hidden="false" />
+    </Activity>
+    <Activity Name="Trial" State="Trial" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="2990" Y="380" Hidden="false" />
+    </Activity>
+    <Activity Name="UpdateDeal" State="UpdateDeal" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="920.0000000000001" Y="1510" Hidden="false" />
+    </Activity>
+    <Activity Name="DealPostponed" State="DealPostponed" IsInitial="false" IsFinal="true" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="879.9999999999999" Y="189.99999999999997" Hidden="false" />
+    </Activity>
+    <Activity Name="TermsReview" State="TermsReview" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="3400" Y="390" Hidden="false" />
+    </Activity>
+    <Activity Name="ReadyToSign" State="ReadyToSign" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="3850" Y="380" Hidden="false" />
+    </Activity>
+    <Activity Name="DealSigned" State="DealSigned" IsInitial="false" IsFinal="true" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="4260" Y="380" Hidden="false" />
+    </Activity>
+    <Activity Name="DashboardUpdateComplete" State="DashboardUpdateComplete" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="909.9999999999998" Y="2060" Hidden="false" />
+    </Activity>
+    <Activity Name="SetTrialSupportTime" State="SetTrialSupportTime" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="660" Y="1779.9999999999998" Hidden="false" />
+    </Activity>
+    <Activity Name="DealUpdateComplete" State="DealUpdateComplete" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="340" Y="1520" Hidden="false" />
+    </Activity>
+    <Activity Name="SuggestionsToGitHub" State="SuggestionsToGitHub" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="3010" Y="60" Hidden="false" />
+    </Activity>
+    <Activity Name="TrialGiven" State="TrialGiven" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="360" Y="1780" Hidden="false" />
+    </Activity>
+  </Activities>
+  <Transitions>
+    <Transition Name="IncomingQuestion_ProspectValidation_1" To="ProspectValidation" From="IncomingQuestion" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="ConvertToDeal_Activity_1" To="HandlingObjections" From="ConvertToDeal" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="Questions" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1102.848484848485" Y="560.8939393939395" Hidden="false" />
+    </Transition>
+    <Transition Name="HandlingQuestions_Activity_1" To="SalesAndSupportAnswer" From="HandlingObjections" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="DifficultQuestions" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1497.0428422152559" Y="875" Hidden="false" />
+    </Transition>
+    <Transition Name="HandlingQuestions_Activity_1_1" To="SalesOnlyAnswer" From="HandlingObjections" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="SimpleQuestions" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1494.3136288998357" Y="638.2758620689655" Hidden="false" />
+    </Transition>
+    <Transition Name="SalesOnlyAnswer_Activity_1" To="CheckForMoreQuestions" From="SalesOnlyAnswer" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Oleg" />
+        <Restriction Type="Allow" NameRef="Elena" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="SendEmailResponse" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="2311.333333333333" Y="642.3809523809523" Hidden="false" />
+    </Transition>
+    <Transition Name="SalesAndSupportAnswer_Activity_1" To="SupportAnswer" From="SalesAndSupportAnswer" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="SameThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1656.027387104337" Y="1050" Hidden="false" />
+    </Transition>
+    <Transition Name="SalesAndSupportAnswer_Activity_1_1" To="SalesAnswer" From="SalesAndSupportAnswer" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1656.510792587743" Y="912.1212121212121" Hidden="false" />
+    </Transition>
+    <Transition Name="Activity_1_TrialAccess_1" To="CheckForMoreQuestions" From="SalesAnswer" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="SendEmailResponse" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="2270.8603363849265" Y="936.2419274714357" Hidden="false" />
+    </Transition>
+    <Transition Name="WaitClientID_HandlingQuestions_1" To="HandlingObjections" From="CheckForMoreQuestions" Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="AdditionalQuestions" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1828" Y="759.0909090909091" Hidden="false" />
+    </Transition>
+    <Transition Name="WaitClientID_Activity_2" To="Trial" From="WaitClientID+Price" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="ProvideClientID+Price" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="2805" Y="406.75438596491233" Hidden="false" />
+    </Transition>
+    <Transition Name="ConvertToDeal_WaitClientID_1" To="WaitClientID+Price" From="ConvertToDeal" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="NoQuestions" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1802.878787878788" Y="405.0000000000001" Hidden="false" />
+    </Transition>
+    <Transition Name="CheckForMoreQuestions_WaitClientID_1" To="WaitClientID+Price" From="CheckForMoreQuestions" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="NoQuestions" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="CheckParameter" ConditionInversion="false" />
+      </Conditions>
+      <Designer X="2559.60037578236" Y="652.7272727272729" Hidden="false" />
+    </Transition>
+    <Transition Name="Trial_HandlingObjections_1" To="HandlingObjections" From="Trial" Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="AdditionalQuestions" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3090.727272727274" Y="1235.7424242424245" Hidden="false" />
+    </Transition>
+    <Transition Name="CheckForMoreQuestions_Trial_1" To="Trial" From="CheckForMoreQuestions" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="NoQuestions" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="2990.357951539936" Y="756.8181818181818" Hidden="false" />
+    </Transition>
+    <Transition Name="ConvertToDeal_Activity_3" To="DealPostponed" From="ConvertToDeal" Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="Postponed" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="916.3888888888886" Y="315" Hidden="false" />
+    </Transition>
+    <Transition Name="WaitClientID_Postponed_1" To="DealPostponed" From="WaitClientID+Price" Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="Postponed" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="2509.261709425185" Y="250.55555555555537" Hidden="false" />
+    </Transition>
+    <Transition Name="Trial_Postponed_1" To="DealPostponed" From="Trial" Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="Postponed" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3002.965413128888" Y="194.62962962962962" Hidden="false" />
+    </Transition>
+    <Transition Name="Trial_Activity_1" To="TermsReview" From="Trial" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="NextStage" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="TermsReview_Trial_1" To="Trial" From="TermsReview" Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="PreviousStage" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3269.212686567164" Y="274.6227765283173" Hidden="false" />
+    </Transition>
+    <Transition Name="TermsReview_Activity_1" To="ReadyToSign" From="TermsReview" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="NextStage" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="ReadyToSign_TermsReview_1" To="TermsReview" From="ReadyToSign" Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="PreviousStage" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3699.492537313433" Y="276.04971716758655" Hidden="false" />
+    </Transition>
+    <Transition Name="ReadyToSign_Activity_1" To="DealSigned" From="ReadyToSign" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="NextStage" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="TermsReview_UpdateDeal_1" To="UpdateDeal" From="TermsReview" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="SameThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3479.916666666665" Y="845.7787356321837" Hidden="false" Color="#FFC107" />
+    </Transition>
+    <Transition Name="ReadyToSign_UpdateDeal_1" To="UpdateDeal" From="ReadyToSign" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="SameThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3920.333333333333" Y="849.2664465639518" Hidden="false" Color="#FFC107" />
+    </Transition>
+    <Transition Name="DealSigned_UpdateDeal_1" To="UpdateDeal" From="DealSigned" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="SameThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="4351" Y="855.2529488120098" Hidden="false" Color="#FFC107" />
+    </Transition>
+    <Transition Name="Trial_UpdateDeal_2" To="UpdateDeal" From="Trial" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="SameThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3264.083333333333" Y="849.2787356321838" Hidden="false" Color="#FFC107" />
+    </Transition>
+    <Transition Name="UpdateProbability_UpdateStatusToTrial_1" To="SetTrialSupportTime" From="UpdateDeal" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Restrict" NameRef="Andrew" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="GiveTrial" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="CheckParameter" ConditionInversion="false" />
+      </Conditions>
+      <Designer X="933.1298701298701" Y="1808.9826839826837" Hidden="false" />
+    </Transition>
+    <Transition Name="UpdateProbability_AddToDashboard_1" To="DashboardUpdateComplete" From="UpdateDeal" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="SameThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Restrictions>
+        <Restriction Type="Restrict" NameRef="Andrew" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="HighProbability" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="CheckParameter" ConditionInversion="false" />
+      </Conditions>
+      <Designer X="1000.0681381225588" Y="1900.9375" Hidden="false" Color="#FFEB3B" />
+    </Transition>
+    <Transition Name="UpdateDeal_UpdateComplete_1" To="DealUpdateComplete" From="UpdateDeal" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Restrict" NameRef="Andrew" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="UpdateProbability" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="TrialGiven_UpdateComplete_1" To="DealUpdateComplete" From="TrialGiven" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Restrict" NameRef="Andrew" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="UpdateProbability" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="ProspectValidation_GitHub Support_1" To="GitHubSupport" From="ProspectValidation" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="NotValidated" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="635.7142857142856" Y="315" Hidden="false" />
+    </Transition>
+    <Transition Name="ProspectValidation_ConvertToDeal_1" To="ConvertToDeal" From="ProspectValidation" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Elena" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="Validated" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="ProspectValidation_UpdateDeal_1" To="UpdateDeal" From="ConvertToDeal" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="AnotherThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1000.5172413793106" Y="975" Hidden="false" Color="#FFC107" />
+    </Transition>
+    <Transition Name="SupportAnswer_CheckForMoreQuestions_1" To="CheckForMoreQuestions" From="SupportAnswer" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Finalize" SubprocessFinalizeParameterMergeStrategy="OverwriteAllNulls">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Andrew" />
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="SendEmailResponse" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="2376.412698412699" Y="984.2063492063492" Hidden="false" />
+    </Transition>
+    <Transition Name="SupportAnswer_SalesAndSupportAnswer_1" To="SalesAndSupportAnswer" From="SupportAnswer" Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Finalize" SubprocessFinalizeParameterMergeStrategy="OverwriteAllNulls">
+      <Restrictions>
+        <Restriction Type="Allow" NameRef="Oleg" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="ResponseIncomplete" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1479.995641072591" Y="1133.333333333333" Hidden="false" />
+    </Transition>
+    <Transition Name="Trial_Activity_2" To="SuggestionsToGitHub" From="Trial" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="SameThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Triggers>
+        <Trigger Type="Command" NameRef="NoPrice" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="CheckParameter" ConditionInversion="false">
+          <ActionParameter><![CDATA[NoPrice=True]]></ActionParameter>
+        </Condition>
+      </Conditions>
+      <Designer X="3105.758706467661" Y="232.5774971297359" Hidden="false" Color="#FFC107" />
+    </Transition>
+    <Transition Name="DealPostponned_SuggestionsToGitHub_1" To="SuggestionsToGitHub" From="DealPostponed" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="SameThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="CheckParameter" ConditionInversion="false">
+          <ActionParameter><![CDATA[NoTrial=True]]></ActionParameter>
+        </Condition>
+      </Conditions>
+      <Designer X="918.5785028346634" Y="11.854005167958633" Hidden="false" Color="#FFC107" />
+    </Transition>
+    <Transition Name="TrialGiven_Activity_1" To="TrialGiven" From="SetTrialSupportTime" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Restrictions>
+        <Restriction Type="Restrict" NameRef="Andrew" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="StartTrial" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="CheckParameter" ConditionInversion="false">
+          <ActionParameter><![CDATA[TrialSupportTime!=0]]></ActionParameter>
+        </Condition>
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="TrialGiven_UpdateDashboard_1" To="DashboardUpdateComplete" From="SetTrialSupportTime" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="SameThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Restrictions>
+        <Restriction Type="Restrict" NameRef="Andrew" />
+      </Restrictions>
+      <Triggers>
+        <Trigger Type="Command" NameRef="SupportTimeDashboard" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="693.9374999999999" Y="2090.625" Hidden="false" Color="#FFEB3B" />
+    </Transition>
+    <Transition Name="ConvertToDeal_DealPostponed_1" To="DealPostponed" From="ConvertToDeal" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Timer" NameRef="DealTimeOut" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1012.444444444444" Y="314.9999999999999" Hidden="false" Color="#03A9F4" />
+    </Transition>
+    <Transition Name="WaitClientID+Price_DealPostponed_1" To="DealPostponed" From="WaitClientID+Price" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Timer" NameRef="DealTimeOut" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="2591.3333333333326" Y="225.00000000000006" Hidden="false" Color="#03A9F4" />
+    </Transition>
+    <Transition Name="ConvertToDeal_DealPostponed_1_1" To="GitHubSupport" From="ProspectValidation" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Timer" NameRef="DealTimeOut" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="743.7142857142856" Y="315.7142857142857" Hidden="false" Color="#03A9F4" />
+    </Transition>
+    <Transition Name="Trial_DealPostponed_1" To="DealPostponed" From="Trial" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Timer" NameRef="DealTimeOut" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3056.6111111111104" Y="160.83333333333314" Hidden="false" Color="#03A9F4" />
+    </Transition>
+    <Transition Name="TermsReview_DealPostponed_1" To="DealPostponed" From="TermsReview" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Timer" NameRef="DealTimeOut" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3406.11111111111" Y="47.36111111111103" Hidden="false" Color="#03A9F4" />
+    </Transition>
+    <Transition Name="ReadyToSign_DealPostponed_1" To="DealPostponed" From="ReadyToSign" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Timer" NameRef="DealTimeOut" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="3860.2222222222226" Y="21.9444444444445" Hidden="false" Color="#03A9F4" />
+    </Transition>
+  </Transitions>
+</Process>

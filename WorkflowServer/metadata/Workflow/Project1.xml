@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Process Name="Project1" CanBeInlined="false" Tags="" LogEnabled="false">
+  <Designer />
+  <Parameters>
+    <Parameter Name="Param1" Type="Boolean" Purpose="Temporary" />
+  </Parameters>
+  <Commands>
+    <Command Name="NotValidated" />
+    <Command Name="Validated" />
+  </Commands>
+  <Comments>
+    <Comment Name="Salesforce" Alignment="center" Rotation="0" Width="297.0619574652765" BoldText="false" ItalicText="false" UnderlineText="false" LineThroughText="false" FontSize="14" Value="In Salesforce, sales rep (Victor) selects Validated/Not Validated. Salesforce makes an API call to WFS passing these parameters. Based on the parameters and salesrep name, WFS changes the state">
+      <Designer X="600" Y="130.00000000000003" Hidden="false" />
+    </Comment>
+  </Comments>
+  <Activities>
+    <Activity Name="IncomingQuestion" State="IncomingQuestion" IsInitial="true" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="420" Y="240" Hidden="false" />
+    </Activity>
+    <Activity Name="SalesforceValidation" State="SalesforceValidation" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Implementation>
+        <ActionRef Order="1" NameRef="SetParameter">
+          <ActionParameter><![CDATA[{"ParameterName":"param1","Value":"true","ForRootProcess":false}]]></ActionParameter>
+        </ActionRef>
+      </Implementation>
+      <Designer X="690" Y="240" Hidden="false" />
+    </Activity>
+    <Activity Name="MikeReview" State="MikeReview" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1080" Y="399.99999999999994" Hidden="false" />
+    </Activity>
+    <Activity Name="GithubSupport" State="GithubSupport" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1060" Y="60" Hidden="false" />
+    </Activity>
+  </Activities>
+  <Transitions>
+    <Transition Name="IncomingQuestion_Validation_1" To="SalesforceValidation" From="IncomingQuestion" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Validation_Activity_1" To="MikeReview" From="SalesforceValidation" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="Validated" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="950.5555555555555" Y="347.77777777777777" Hidden="false" />
+    </Transition>
+    <Transition Name="Validation_Activity_1_1" To="GithubSupport" From="SalesforceValidation" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="NotValidated" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Action" NameRef="CheckParameter" ConditionInversion="false">
+          <ActionParameter><![CDATA[{"ParameterName":"param1","CompareType":"Equal","Value":"true","Separator":",","ForRootProcess":false}]]></ActionParameter>
+        </Condition>
+      </Conditions>
+      <Designer X="950.5555555555555" Y="180" Hidden="false" />
+    </Transition>
+  </Transitions>
+</Process>

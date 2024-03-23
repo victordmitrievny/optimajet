@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Process Name="Ride_booking_app_project" CanBeInlined="false" Tags="" LogEnabled="false">
+  <Designer />
+  <Commands>
+    <Command Name="go" />
+  </Commands>
+  <Comments>
+    <Comment Name="Comment" Alignment="left" Rotation="0" Width="166.765625" BoldText="false" ItalicText="false" UnderlineText="false" LineThroughText="false" FontSize="12" Value="Scheduling and reserving rides">
+      <Designer X="330" Y="330.00000000000006" Hidden="false" />
+    </Comment>
+    <Comment Name="Comment" Alignment="left" Rotation="0" Width="132.0546875" BoldText="false" ItalicText="false" UnderlineText="false" LineThroughText="false" FontSize="12" Value="Assign driver for the ride">
+      <Designer X="570.0000000000001" Y="330" Hidden="false" />
+    </Comment>
+    <Comment Name="Comment" Alignment="left" Rotation="0" Width="49.35546875" BoldText="false" ItalicText="false" UnderlineText="false" LineThroughText="false" FontSize="12" Value="Payment">
+      <Designer X="830" Y="330" Hidden="false" />
+    </Comment>
+    <Comment Name="Comment" Alignment="left" Rotation="0" Width="260.158203125" BoldText="false" ItalicText="false" UnderlineText="false" LineThroughText="false" FontSize="12" Value="Finalize the ride and send notification to the user">
+      <Designer X="1030" Y="330" Hidden="false" />
+    </Comment>
+  </Comments>
+  <Activities>
+    <Activity Name="RequestRide" State="RequestRide" IsInitial="true" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="330" Y="240" Hidden="false" />
+    </Activity>
+    <Activity Name="AssignDriver" State="AssignDriver" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="576" Y="240" Hidden="false" />
+    </Activity>
+    <Activity Name="Payment" State="Payment" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="820" Y="240" Hidden="false" />
+    </Activity>
+    <Activity Name="SendNotification" State="SendNotification" IsInitial="false" IsFinal="false" IsForSetState="true" IsAutoSchemeUpdate="true">
+      <Designer X="1068" Y="240" Hidden="false" />
+    </Activity>
+  </Activities>
+  <Transitions>
+    <Transition Name="RequestRide_Activity_1" To="AssignDriver" From="RequestRide" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Command" NameRef="go" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="AssignDriver_Activity_1" To="Payment" From="AssignDriver" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="Payment_Activity_1" To="SendNotification" From="Payment" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+  </Transitions>
+</Process>

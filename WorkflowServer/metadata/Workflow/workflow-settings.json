@@ -1,0 +1,82 @@
+{
+  "Test": {
+    "CanBeInlined": false,
+    "InlinedSchemes": [],
+    "Tags": [],
+    "DeleteFinalized": false,
+    "DontFillIndox": false,
+    "DontPreExecute": false,
+    "AutoStart": false,
+    "DefaultForm": null
+  },
+  "Project1": {
+    "CanBeInlined": false,
+    "InlinedSchemes": [],
+    "Tags": [],
+    "DeleteFinalized": false,
+    "DontFillIndox": false,
+    "DontPreExecute": false,
+    "AutoStart": false,
+    "DefaultForm": null
+  },
+  "schemaaa": {
+    "CanBeInlined": false,
+    "InlinedSchemes": [],
+    "Tags": [],
+    "DeleteFinalized": false,
+    "DontFillIndox": false,
+    "DontPreExecute": false,
+    "AutoStart": false,
+    "DefaultForm": null
+  },
+  "Tech_support_schema": {
+    "CanBeInlined": false,
+    "InlinedSchemes": [],
+    "Tags": [],
+    "DeleteFinalized": false,
+    "DontFillIndox": false,
+    "DontPreExecute": false,
+    "AutoStart": false,
+    "DefaultForm": null
+  },
+  "diddownlaodoccur": {
+    "CanBeInlined": false,
+    "InlinedSchemes": [],
+    "Tags": [],
+    "DeleteFinalized": false,
+    "DontFillIndox": false,
+    "DontPreExecute": false,
+    "AutoStart": false,
+    "DefaultForm": null
+  },
+  "Ride_booking_app_project": {
+    "CanBeInlined": false,
+    "InlinedSchemes": [],
+    "Tags": [],
+    "DeleteFinalized": false,
+    "DontFillIndox": false,
+    "DontPreExecute": false,
+    "AutoStart": false,
+    "DefaultForm": null
+  },
+  "jjjj": {
+    "CanBeInlined": false,
+    "InlinedSchemes": [],
+    "Tags": [],
+    "DeleteFinalized": false,
+    "DontFillIndox": false,
+    "DontPreExecute": false,
+    "AutoStart": false,
+    "DefaultForm": null
+  },
+  "Approval_test": {
+    "CanBeInlined": false,
+    "InlinedSchemes": [],
+    "Tags": [],
+    "DeleteFinalized": false,
+    "DontFillIndox": false,
+    "DontPreExecute": false,
+    "AutoStart": false,
+    "DefaultForm": null
+  }
+}
